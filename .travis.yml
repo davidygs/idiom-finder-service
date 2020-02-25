@@ -1,0 +1,22 @@
+dist: xenial
+language: python
+python:
+    - "3.7"
+env:
+    global:
+        - IMAGE_NAME=scabbage/idiom-finder
+install:
+    - pip install pipenv
+    - pipenv install --ignore-pipfile --dev
+script:
+    - pytest
+after_success:
+    - cd $TRAVIS_BUILD_DIR
+    - docker --version
+    - env
+    - docker build -t $IMAGE_NAME .
+    - docker tag $IMAGE_NAME "$IMAGE_NAME:$TRAVIS_BUILD_ID"
+    - docker tag $IMAGE_NAME "$IMAGE_NAME:latest"
+    - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+    - docker push $IMAGE_NAME:$TRAVIS_BUILD_ID
+    - docker push $IMAGE_NAME:latest
