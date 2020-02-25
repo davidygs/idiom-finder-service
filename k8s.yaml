@@ -34,7 +34,7 @@ spec:
           name: idiom-finder
           env:
             - name: SANIC_RESPONSE_TIMEOUT
-              value: 10
+              value: "10"
           ports:
             - containerPort: 8000
               protocol: TCP
