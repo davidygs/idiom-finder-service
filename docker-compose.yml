@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  scraper:
+    image: "scabbage/idiom-finder:latest"
+    environment:
+      - SANIC_RESPONSE_TIMEOUT=10
+    ports:
+      - "8000:8000"
