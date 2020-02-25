@@ -2,13 +2,13 @@ import pkgutil
 
 from sanic.log import logger
 
-IDIOM_PACKAGE = 'idiomfinder.idiomchecker'
+IDIOM_PACKAGE = 'idiomfinder.validator'
 IDIOM_FILE = 'data/idioms.3w.txt'
 
 
-class IdiomChecker:
+class IdiomValidator:
     """
-    IdiomChecker checks a given string to see if it is a Chinese idiom. It does so by searching
+    IdiomValidator examines a given string to see if it is a Chinese idiom. It does so by searching
     against a list of known idioms.
     """
 
@@ -17,5 +17,5 @@ class IdiomChecker:
         self.all_idioms = set(a.decode('utf-8').strip().splitlines())
         logger.debug('Idioms loaded from {}/{}'.format(IDIOM_PACKAGE, IDIOM_FILE))
 
-    def is_idiom(self, s):
+    def is_valid(self, s):
         return s in self.all_idioms
