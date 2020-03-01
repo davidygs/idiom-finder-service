@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="content-type" content="text/html;charset=gbk" />
+<meta property="wb:webmaster" content="3aababe5ed22e23c" />
+<meta name="referrer" content="always" />
+<title>
+百度知道搜索_形容描写表示关于美丽成语
+</title>
+<link rel="shortcut icon" href="//www.baidu.com/favicon.ico?t=20171027" type="image/x-icon" />
+<link rel="icon" sizes="any" mask href="//www.baidu.com/img/baidu.svg" />
+
+<script>
+    window.alogObjectConfig = {
+        product: '102',
+        page: '102_5', 
+        monkey_page: 'zhidao-search',
+        speed_page: '5',
+        speed: {
+            sample: '0.05'
+        },
+        monkey: {
+            sample: '0.025'
+        },
+        exception: { 
+            sample: '0.025'
+        },
+        feature: {
+            sample: '0.025'
+        },
+        cus: {
+            sample: '0.025',
+            custom_metrics: ['c_sbox', 'c_menu']
+        },
+        csp: {
+            sample: '0.05',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>
+
+<script>
+	!function(document, window){
+		var log = {
+			list: [],
+			host: 'https://' + location.host + '/api/httpscheck',
+			log: function(param) {
+				var a = [];
+		    	for(var k in param) {
+		    		a.push(k + '=' + param[k]);
+		    	}
+		    	var msg = a.join('&');
+		    	if(~this.list.indexOf(msg)){
+		    		return;
+		    	}
+		    	this.list.push(msg);
+		  		var img = new Image();
+		    	var key = '_ik_log_' + (Math.random()*2147483648 ^ 0).toString(36);
+		    	window[key] = img;
+		    		img.onload = img.onerror = img.onabort = function() {
+		        		img.onload = img.onerror = img.onabort = null;
+		        		window[key] = null;
+			    		img = null;
+		    	};
+		  		img.src = this.host + '?' + msg;
+			}
+		};
+
+		function HTTPSWarningLog(){
+			this.selector = [
+				'link',
+				'script',
+				'img',
+				'embed',
+				'iframe'
+			];
+			this.warningCounter = 0;
+			this.init();
+		};
+
+		HTTPSWarningLog.prototype = {
+			init: function(){
+				this.fetch();
+			},
+
+			fetch: function(){
+				for(var tags = this.selector, i =0, len = tags.length; i < len;i++) {
+					this.getTag(tags[i]);
+				}
+			},
+
+			getTag: function(tag) {
+				var domList = document.getElementsByTagName(tag);
+				if(!domList.length) {
+					return;
+				}
+				for(var i = 0,len = domList.length;i<len;i++) {
+					var el = domList[i];
+					var url = el.getAttribute(el.tagName==='LINK' ? 'href' : 'src');
+                    if(el.getAttribute('rel') === 'canonical') {
+                        continue;
+                    }
+					if(url && 'https:' === location.protocol && !url.indexOf('http:')){
+						this.sendLog(el, el.tagName.toLowerCase(),url);
+						this.warningCounter++;
+					}
+				}
+			},
+			
+			sendLog: function(el, type, url){
+				log.log({
+					url: location.href,
+					wtype: type,
+					wurl: url
+				});
+			}
+		};
+
+		function domReady(fn){
+		    if(document.addEventListener) {
+		        document.addEventListener('DOMContentLoaded', function() {
+		            document.removeEventListener('DOMContentLoaded',arguments.callee, false);
+		            fn();
+		        }, false);
+		    }else if(document.attachEvent) {
+		        document.attachEvent('onreadystatechange', function() {
+		            if(document.readyState == 'complete') {
+		                document.detachEvent('onreadystatechange', arguments.callee);
+		                fn();
+		            }
+		        });
+		    }
+		};
+
+		domReady(function(){
+			new HTTPSWarningLog();
+			for(var i=1; i<6; i++) {
+				!function(i){
+					setTimeout(function(){
+						new HTTPSWarningLog();
+					}, i*i*i*1000);
+				}(i);
+			}
+		});
+	}(document, window);
+</script>
+
+<link rel="canonical" href="http://zhidao.baidu.com/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" />
+
+<script type="text/javascript">
+			!function(){var n={},t={};n.context=function(n,e){var i=arguments.length;if(i>1)t[n]=e;else if(1==i){if("object"!=typeof n)return t[n];for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])}},"F"in window||(window.F=n)}();;
+			
+            
+																																														
+			F.context('user', {"isLogin":"1","isRealName":"2","stoken":"4fa6eee4ce679ba3fb6e6729ffacace3","name":"\u6211\u662f\u4f59\u5c0f\u6d77","imId":"6fc2e68891e698afe4bd99e5b08fe6b5b78a40","id":"","euid":"6fc24069236f25705e798a40","wealth":"","gradeIndex":"1","isMavin":"","ECBD":"*"});
+			F.context('user')['internalAdmin'] = [];
+
+							F.context('defaultQuery', '{"title":"","value":""}');
+									
+			            F.context('isQuality', false);
+            F.context('now', 1582991180);
+		</script>
+<script>F.context('sysTaskAutoInit', 1);</script>
+<!--[if lte IE 8]>
+<script>
+                (function(){
+                    var e="abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+                    i=e.length;
+                    while(i--){document.createElement(e[i])}
+                 })();
+            </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/common/pkg/common.e799f9e.css" /><link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/search/pkg/module.5bec489.css" /><link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/common/widget/header-metis/header.39c9ddf.css" /><link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/common/widget/set-tag/set-tag.0b3a009.css" /><link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/common/widget/task/task-last.3274afd.css" /><link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/search/widget/bottom-search-box/bottom-search-box.3ad0422.css" /><link rel="stylesheet" type="text/css" href="https://iknowpc.bdimg.com/static/search/widget/billboard/billboard.8b3f89c.css" /></head>
+
+<script> alog('speed.set', 'ht', +new Date()); </script>
+
+<body class="newsearch">
+
+<div id="userbar" class="userbar userbar-renew" data="">
+<ul class="aside-list">
+<li>
+<a href="http://www.baidu.com/" class="toindex">百度首页</a>
+</li>
+<li>
+<a href="/ihome" class="user-name" target="_blank" id="user-name">我是余小海<i class="i-arrow-down"></i></a></li>
+</li>
+<li alog-alias="userbar-msg" id="userbar-msg"><a class="userbar-msg-a" href="/ihome/notice/center" target="_blank" target="_self">消息<span class="orange-num"><i></i></span></a></li>
+<li alog-alias="baidu-msg" id="baidu-msg"><a href="/ichat/chatlist">私信<i class="bd-msg"></i></a></li>
+<li class="shop-entrance">
+<a href="/shop" title="知道商城">商城<i class="i-house" style="display: none;"></i></a>
+<span class="lucky-try" style="display: none"></span>
+</li>
+</ul>
+<div class="sublist-container username-sublist" style="display:none" id="username-sublist">
+<div class="sublist-arrow-up"></div>
+<ul class="sub-list">
+<li><a id="userbar-myinfo" href="/ihome/homepage/recommendquestion" target="_blank">我的主页</a></li>
+<li><a id="userbar-my-ask" href="https://zhidao.baidu.com/ihome/homepage/myask" target="_blank">我的提问</a></li>
+<li><a id="userbar-my-answer" href="https://zhidao.baidu.com/ihome/homepage/myanwser" target="_blank">我的回答</a></li>
+<li><a id="userbar-my-task" href="https://zhidao.baidu.com/ihome/homepage/mytask" target="_blank">我的任务</a></li>
+<li><a id="userbar-account" href="http://passport.baidu.com/center" target="_blank">帐号设置</a></li>
+<li class="last"><a href="http://passport.baidu.com/?logout&amp;aid=7&amp;u=http%3A//zhidao.baidu.com" id="userbar-logout">退出帐号</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="head-wrap">
+<hr class="divider">
+<header id="header" class="container">
+
+<div id="search-box" class="search-box-new line">
+<ul class="channel grid">
+<li><a log="sc_pos:c_baidu" data-type='baidu' rel="nofollow" href="http://www.baidu.com/s?cl=3&wd=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF">网页</a></li>
+<li><a log="sc_pos:c_news" data-type='news' rel="nofollow" href="https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&fr=zhidao">资讯</a></li>
+<li><a log="sc_pos:c_video" data-type='video' rel="nofollow" href="https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&wd=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&rsv_spt=16">视频</a></li>
+<li><a log="sc_pos:c_pic" data-type='image' rel="nofollow" href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&t=3&ie=gbk">图片</a></li>
+<li><strong>知道</strong></li>
+<li><a log="sc_pos:c_doc" data-type='wenku' rel="nofollow" href="http://wenku.baidu.com/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&lm=0&od=0">文库</a></li>
+<li><a log="sc_pos:c_tieba" data-type='tieba' rel="nofollow" href="http://tieba.baidu.com/f?kw=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&t=4">贴吧</a></li><li><a log="sc_pos:c_b2b" data-type='b2b' rel="nofollow" href="https://b2b.baidu.com/s?q=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&fr=www">采购</a></li>
+<li><a log="sc_pos:c_map" data-type='map' rel="nofollow" href="http://map.baidu.com/m?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&fr=map007">地图</a></li><li><a log="sc_pos:c_more" data-type="more" href="http://www.baidu.com/more/">更多&raquo;</a></li>
+</ul>
+<div class="search-block clearfix">
+<div class="search-cont clearfix">
+<a class="logo" href="/" title="百度知道"></a>
+<form action="/search" name="search-form" method="get" id="search-form-new" class="search-form">
+<input class="hdi" id="kw" maxlength="256" tabindex="1" size="46" name="word" value="形容描写表示关于美丽成语" autocomplete="off" placeholder="" />
+<button alog-action="g-search-anwser" type="submit" id="search-btn" hidefocus="true"  tabindex="2" class="btn-global">搜索答案</button>
+<a href="#" alog-action="g-i-ask" class="i-ask-link" id="ask-btn-new">我要提问</a>
+</form>
+</div>
+</div>
+</div>
+<script>
+                    // 搜索框可用时间打点
+                    alog && alog('speed.set', 'c_sbox', +new Date); alog.fire && alog.fire("mark");
+                </script>
+
+</header>
+</div>
+<div id="body" class="container">
+
+<section id="page-main" class="page-main line">
+<div class="page-main-inner">
+
+
+<div class="line">
+<div class="list-wraper">
+<div class="list-header">
+
+<div id="wgt-picker" class="wgt-picker">
+<div class="picker-header">
+<span class="f-lighter lh-22">共49,747,579条结果</span>
+<a href="#" class="picker-btn f-light" id="picker-btn"><span>筛选答案</span><i class="i-arrow-gray-down ml-5"></i></a>
+</div>
+<div class="picker-area line" id="picker-area">
+<div class="picker line">
+<label class="picker-label">提问时间:</label>
+<ul class="picker-list">
+<li class="p-item"><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&lm=0&site=-1&sites=0&date=0&ie=gbk" data-log="pos:date,dt:0"><i class="i-radio-checked"></i>全部</a></li>
+<li class="p-item"><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&lm=0&site=-1&sites=0&date=2&ie=gbk" data-log="pos:date,dt:2"><i class="i-radio"></i>最近1周</a></li>
+<li class="p-item"><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&lm=0&site=-1&sites=0&date=3&ie=gbk" data-log="pos:date,dt:3"><i class="i-radio"></i>最近1月</a></li>
+<li class="p-item"><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&lm=0&site=-1&sites=0&date=4&ie=gbk" data-log="pos:date,dt:4"><i class="i-radio"></i>最近1年</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="list-inner">
+
+
+<div class="list" id="wgt-list" data-log-area="list">
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="633:402072987">
+<dt class="dt mb-4 line" alog-alias="result-title-0">
+<a href="http://zhidao.baidu.com/question/402072987.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:1,st:0"
+                target="_blank" class="ti"><em>形容美丽</em>的<em>成语</em></a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>1，冰雪聪明 冰雪聪明是一个汉语<em>成语</em>，拼音是bīng xuě cōng míng，意思是人聪颖，聪明非凡。语出唐·杜甫《送樊二十三侍御赴汉中判官》。 2，花容月貌 <em>形容</em>女子<em>美丽</em>的容貌。出 处明·吴承恩《西游记》第六十二回:“那公主花容月貌，有二十分人才。”...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-10-08</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=26ec4069236f25705e79fba4" target="_blank" class="f-light nod" data-log="pos:un,si:1">结果是已收到</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/402072987.html" target="_blank" class="f-light nod" data-log="pos:ans,si:1">16个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>47
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="667:1434958709627812179">
+<dt class="dt mb-4 line" alog-alias="result-title-1">
+<a href="http://zhidao.baidu.com/question/1434958709627812179.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:2,st:0"
+                target="_blank" class="ti"><em>形容</em>人<em>美丽</em>的<em>成语</em>有哪些</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i><em>形容</em>人<em>美丽</em>的<em>成语</em>有眉清目秀、闭月羞花、国色天香、亭亭玉立、明眸皓齿、婀娜多姿、倾国倾城、出水芙蓉、美如冠玉、环肥燕瘦。 1、眉清目秀是一个<em>成语</em>，读音是méi qīng mù xiù，<em>形容</em>人的容貌清秀不俗气。 巴金《电》一：“她看见黄瘦的雄，三角脸...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-11-01</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=23434069236f25705e79dfa2" target="_blank" class="f-light nod" data-log="pos:un,si:2">叫那个不知道</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/1434958709627812179.html" target="_blank" class="f-light nod" data-log="pos:ans,si:2">8个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>34
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="636:1372225683160054539">
+<dt class="dt mb-4 line" alog-alias="result-title-2">
+<a href="http://zhidao.baidu.com/question/1372225683160054539.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:3,st:0"
+                target="_blank" class="ti"><em>形容</em>"事物<em>美丽</em>"的<em>成语</em>有哪些？</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>精美绝伦、白玉无瑕、精妙入神、精妙绝伦、尽善尽美、无懈可击、美不胜收、繁花似锦。 1、精美绝伦[jīng měi jué lún] 没有比得上的。精致美妙，无与伦比。 2、白玉无瑕[bái yù wú xiá] 比喻人或事物完美无缺。 3、精妙入神[jīng miào rù shén] ...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-10-11</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=09634069236f25705e792ba8" target="_blank" class="f-light nod" data-log="pos:un,si:3">H1chao</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/1372225683160054539.html" target="_blank" class="f-light nod" data-log="pos:ans,si:3">1个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>31
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="642:2057430578837004867">
+<dt class="dt mb-4 line" alog-alias="result-title-3">
+<a href="http://zhidao.baidu.com/question/2057430578837004867.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:4,st:0"
+                target="_blank" class="ti"><em>形容</em>城市<em>美丽</em>的<em>成语</em>有哪些？</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>华灯璀璨（huá dēng cuǐ càn）：光彩夺目华美而光辉灿烂的灯 造句：入夜,人民大街华灯璀璨,车水马龙 山清水秀（shān qīng shuǐ xiù）：<em>形容</em>风景优美。 造句：来到这个山清水秀的地方 使我神清气爽 人杰地灵（rén jié dì líng）: 指有杰出的人降...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-09-22</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=394f4069236f25705e7949c4" target="_blank" class="f-light nod" data-log="pos:un,si:4">蒋063</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/2057430578837004867.html" target="_blank" class="f-light nod" data-log="pos:ans,si:4">1个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>30
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="667:11773096">
+<dt class="dt mb-4 line" alog-alias="result-title-4">
+<a href="http://zhidao.baidu.com/question/11773096.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:5,st:0"
+                target="_blank" class="ti"><em>形容</em>女子<em>美丽</em>的<em>成语</em></a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i><em>形容</em>女子<em>美丽</em>的<em>成语</em>有：闭月羞花、国色天香、倾国倾城、亭亭玉立、明眸皓齿、冰肌玉骨、小家碧玉、窈窕淑女、天生丽质、秀色可餐等等。 1、闭月羞花 拼音：[bì yuè xiū huā]。 释义：闭：藏。使月亮躲藏，使花儿羞惭。<em>形容</em>女子容貌<em>美丽</em>。 用法：...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-04-09</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=025f4069236f25705e793b47" target="_blank" class="f-light nod" data-log="pos:un,si:5">liuxh3279</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/11773096.html" target="_blank" class="f-light nod" data-log="pos:ans,si:5">19个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>97
+</span>
+</dd>
+</dl>
+<script>
+            void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+        </script>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="646:687384131170125724">
+<dt class="dt mb-4 line" alog-alias="result-title-5">
+<a href="http://zhidao.baidu.com/question/687384131170125724.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:6,st:0"
+                target="_blank" class="ti"><em>描写</em>大自然<em>美丽</em>的<em>成语</em></a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i><em>描写</em>大自然<em>美丽</em>的<em>成语</em>有： 一、山明水秀 [ shān míng shuǐ xiù ] 1. 【解释】：山光明媚，水色秀丽。<em>形容</em>风景优美。 2. 【出自】：宋·黄庭坚《蓦山溪·赠衡阳陈湘》：“眉黛敛秋波，尽湖南，山明水秀。” 3. 【示例】：在一个～的村庄里，她认识了...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-11-15</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=80e64069236f25705e79d69b" target="_blank" class="f-light nod" data-log="pos:un,si:6">我是大角度</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/687384131170125724.html" target="_blank" class="f-light nod" data-log="pos:ans,si:6">8个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>84
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="648:749450449198518412">
+<dt class="dt mb-4 line" alog-alias="result-title-6">
+<a href="http://zhidao.baidu.com/question/749450449198518412.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:7,st:0"
+                target="_blank" class="ti"><em>形容</em>一个人很<em>美丽</em>的<em>成语</em></a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>1、花容月貌 释义：如花似月的容貌。<em>形容</em>女子美貌。 拼音：huā róng yuè mào 出处：明·吴承恩《西游记》第六十二回：“那公主花容月貌，有二十分人才。” 用法：褒义词，联合式；作谓语、定语。 2、如花似玉 释义：像花一样艳丽；像玉一样美好。形...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-10-13</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=b6db4069236f25705e794560" target="_blank" class="f-light nod" data-log="pos:un,si:7">cosimayuwang</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/749450449198518412.html" target="_blank" class="f-light nod" data-log="pos:ans,si:7">2个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>31
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="603:165792854">
+<dt class="dt mb-4 line" alog-alias="result-title-7">
+<a href="http://zhidao.baidu.com/question/165792854.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:8,st:0"
+                target="_blank" class="ti"><em>描写美丽</em>景色的<em>成语</em></a>
+</dt>
+<dd class="dd summary"><i class="i-answer-text">问：</i>四个</dd>
+<dd class="dd answer"><i class="i-answer-text">答：</i>鸟语花香 春光明媚 春意盎然 草长莺飞 花团锦簇 烟波浩渺 落英缤纷 繁花似锦 沃野千里 一泻千里 山清水秀 层峦叠嶂 千沟万壑 山重水复 湖光山色 如诗如画 百鸟齐鸣 诗情画意 春暖花开 夏天:烈日炎炎 百花争艳 骄阳似火 电闪雷鸣 赤日炎炎 烈日炎...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-09-19</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=b5704069236f25705e79ad31" target="_blank" class="f-light nod" data-log="pos:un,si:8">qf013</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/165792854.html" target="_blank" class="f-light nod" data-log="pos:ans,si:8">35个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>206
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="667:569058823">
+<dt class="dt mb-4 line" alog-alias="result-title-8">
+<a href="http://zhidao.baidu.com/question/569058823.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:9,st:0"
+                target="_blank" class="ti">古代<em>形容</em>女子<em>美丽</em>的<em>成语</em>有什么？</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i><em>形容</em>女子<em>美丽</em>的<em>成语</em>有倾国倾城，国色天香，花容月貌，亭亭玉立，出水芙蓉。 1.倾国倾城 [ qīng guó qīng chéng ] 【解释】：倾：倾覆；城：国。原指因女色而亡国。后多<em>形容</em>妇女容貌极美。 【出自】：《诗·大雅·瞻卬》：“哲夫成城，哲妇倾城。”《...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-08-26</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=27454069236f25705e79eda0" target="_blank" class="f-light nod" data-log="pos:un,si:9">A罗网天下</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/569058823.html" target="_blank" class="f-light nod" data-log="pos:ans,si:9">11个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>38
+</span>
+</dd>
+</dl>
+<dl class="dl dl-last" data-fb="pos:dt>a,type:normal" data-rank="636:2143878550363087468">
+<dt class="dt mb-4 line" alog-alias="result-title-9">
+<a href="http://zhidao.baidu.com/question/2143878550363087468.html?fr=iks&word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk" 
+                data-log="fm:as,pos:ti,si:10,st:0"
+                target="_blank" class="ti"><em>形容</em>“地方很<em>美丽</em>”的<em>成语</em></a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>人杰地灵 、人间天堂、 人间仙境、 山明水秀、钟灵毓秀。 1.钟灵毓秀 zhōng líng yù xiù 释义：钟：凝聚，集中；毓：养育。凝聚了天地间的灵气，孕育着优秀的人物。指山川秀美，人才辈出。 出处：唐·柳宗元《马退山茅亭记》：“盖天钟秀于是，不...</dd>
+<dd class="dd explain f-light" alog-group="result-userinfo">
+<span class="mr-8">2019-08-12</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="/usercenter?uid=86fd4069236f25705e799b4c" target="_blank" class="f-light nod" data-log="pos:un,si:10">hx木给給</a>
+</span>
+<span class="mr-8">
+<a href="http://zhidao.baidu.com/question/2143878550363087468.html" target="_blank" class="f-light nod" data-log="pos:ans,si:10">1个回答</a>
+</span>
+<span class="ml-10 f-black">
+<i class="i-agree"></i>8
+</span>
+</dd>
+</dl>
+</div>
+
+
+<div class="widget-pager clearfix mb-20">
+<div class="pager" alog-alias="pager">
+<b>1</b><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=10">2</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=20">3</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=30">4</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=40">5</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=50">6</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=60">7</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=70">8</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=80">9</a><a href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=90">10</a><a class="pager-next" href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=10">下一页&gt;</a><a class="pager-last" href="/search?word=%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF&ie=gbk&site=-1&sites=0&date=0&pn=750">尾页</a>
+</div>
+</div>
+
+
+</div>
+<div class="list-footer">
+
+
+<div id="lead-ps" class="f-14 line mb-20" data-log-area="leadps" data-log-event="mousedown">
+<div class="pt-5">
+<div id="bdrecContainer" style="display: none;"></div>
+</div>
+</div>
+<script type="text/javascript" src="https://m.baidu.com/recsys/static/se/external/entrance.js"></script>
+
+
+</div>
+</div>
+<aside class="aside fixheight">
+<div class="aside-inner">
+
+
+
+
+<span class="union-tg">广告</span><script type="text/javascript" src="//dup.baidustatic.com/js/m.js"></script>
+<div id="union-aspLU" class="wgt-union union-aspLU line">
+<script>BAIDU_CLB_fillSlot('968825');</script>
+</div>
+<div style="width: 250px;height: 250px;" class="js-wgt-right-ad-250">
+<div id="right-billboard">
+<div class="billboard-head">
+<div class="billboard-title">搜索热点</div>
+<span class="billboard-reload">
+换一换<span class="billboard-icon reload-icon ml-5"></span>
+</span>
+</div>
+<ul class="billboard-list"></ul>
+<div class="billboard-source">来源：<a class="billboard-source-name" target="_blank" href="http://www.baidu.com/link?url=QezZHUFL28wX6ffD2dDGnrZJOKp8gHRRWvNm-cioX5qU5Ke4sCCgF3dVJLVKzPNQ">百度风云榜</a>
+</div>
+</div>
+<script type="text/html" id="t:billboard-list">
+    <#for(var i = 0; i < data.length; i++){#>
+        <li class="billboard-item">
+        	<a log="page:search,action:click,pos:fyb-list" href="https://www.baidu.com/baidu?word=<#:=encodeURIComponent(data[i].keyword)#>&rsv_dl=fyb_n_zhidaojs" target="_blank" class="item-title"><#=data[i].keyword#></a>
+        	<span class="item-num">
+        		<span><#=data[i].searches#></span>
+        		<#if (data[i].changeRate > 0) {#>
+        		    <span class="icon-up billboard-icon"></span>
+        		<#} else {#>
+        		    <span class="icon-down billboard-icon"></span>
+        		<#}#>
+        	</span>
+        </li>
+    <#}#>
+</script>
+
+</div>
+
+
+<div class="fb-main"></div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<div class="search-box line" xmlns="http://www.w3.org/1999/html">
+<form action="/search" name="bottom-search-form" method="get" id="bottom-search-form" class="search-form">
+<input class="hdi" id="bottom-search-input" maxlength="256" size="46" name="word" value="形容描写表示关于美丽成语" />
+<button alog-action="g-search-anwser" type="submit" id="bottom-search-btn" hidefocus="true" class="btn-global">搜索答案</button>
+<a href="#" alog-action="g-i-ask" id="bottom-ask-btn" class="i-ask-link">提问</a>
+</form></div>
+
+
+</div>
+
+
+<footer id="footer" class="wgt-footer">
+<p>
+<a target="_blank" rel="nofollow" href="http://help.baidu.com/question?prod_id=9&class=337">帮助</a>
+&nbsp;|&nbsp;<a target="_blank" rel="nofollow" href="javascript:;" id="footer-feedback">意见反馈</a>
+&nbsp;|&nbsp;<a target="_blank" rel="nofollow" href="http://help.baidu.com/newadd?prod_id=9&category=1">投诉举报</a>
+</p>
+<p>
+京ICP证030173号-1&nbsp;&nbsp;&nbsp;京网文【2013】0934-983号&nbsp;&nbsp;&nbsp;&nbsp;    &copy;2020Baidu&nbsp;&nbsp;<a rel="nofollow" href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a rel="nofollow" href="http://help.baidu.com/question?prod_id=9&class=325&id=2760" target="_blank">知道协议</a>&nbsp;</p>
+</footer>
+
+
+
+
+
+<div class="wgt-bottom-ask" style="display:none;">
+<div class="bottom-ask-shadow"></div>
+<div class="bottom-ask-close cur-pointer"></div>
+<div class="bottom-ask-con line pt-20">
+<div class="grid">
+<div class="bottom-ask-title mb-10 line">
+<div class="bottom-ask-title-1 grid"></div>
+<div class="bottom-ask-num grid"></div>
+<div class="bottom-ask-title-2 grid"></div>
+</div>
+<form action="/new" name="bottom-ask-form" method="get" class="bottom-ask-form line">
+<input class="bottom-ask-input grid" maxlength="256" size="46" name="word" value="形容描写表示关于美丽成语" autocomplete="off" />
+<input type="hidden" name="ie" value="gbk" />
+<input type="hidden" name="entry" value="bottom_ask" />
+<input type="submit" hidefocus="true" value="提问" class="bottom-ask-btn grid" />
+</form>
+</div>
+<div class="grid-r line bottom-ask-app">
+<div class="app-code grid"></div>
+<div class="app-word grid ml-15 mr-10">
+<p>下载知道APP</p>
+<p>随时随地咨询</p>
+<p>出门在外也不愁</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+    </script>
+
+<script>
+				var _hmt = _hmt || [];
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "https://hm.baidu.com/hm.js?6859ce5aaf00fb00387e6434e4fcc925";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+				})();
+			</script>
+
+</body><script type="text/javascript" src="https://iknowpc.bdimg.com/static/common/lib/mod.75d1f98.js"></script><script type="text/javascript">(window.__IKNOW_GLOBAL__ || window).require.resourceMap({"res":{"common:widget\/lib\/jquery\/jquery.origin.js":{"pkg":"common:p3"},"common:widget\/js\/util\/https\/https.js":{"pkg":"common:p6"},"common:widget\/bottom-ask\/bottom-ask.js":{"pkg":"common:p0","deps":["common:widget\/js\/util\/tangram\/tangram.js","common:widget\/js\/util\/event\/event.js","common:widget\/js\/util\/log\/log.js"]},"common:widget\/css\/fonts\/iconfont.js":{"pkg":"common:p0"},"common:widget\/css\/fonts\/iconfont.min.js":{"pkg":"common:p0"},"common:widget\/footer-new\/footer-new.js":{"pkg":"common:p0","deps":["common:widget\/lib\/jquery\/jquery.js","common:widget\/js\/util\/event\/event.js"]},"common:widget\/footer\/footer.js":{"pkg":"common:p0"},"common:widget\/header-metis\/header.js":{"pkg":"common:p0","deps":["common:widget\/lib\/jquery\/jquery.js","common:widget\/js\/ui\/dialog\/dialog.js","common:widget\/js\/util\/template\/template.js","common:widget\/js\/ui\/scrollbar-new\/scrollbar-new.js","common:widget\/js\/util\/store\/store.js"]},"common:widget\/menu\/menu.js":{"pkg":"common:p0","deps":["common:widget\/js\/util\/tangram\/tangram.js","common:widget\/js\/util\/log\/log.js"]},"common:widget\/search-box-new\/search-box-new.js":{"pkg":"common:p0","deps":["common:widget\/js\/util\/tangram\/tangram.js","common:widget\/js\/ui\/suggestion-new\/suggestion-new.js","common:widget\/js\/util\/event\/event.js","common:widget\/js\/util\/form\/form.js","common:widget\/js\/util\/log\/log.js","common:widget\/js\/ui\/dialog\/dialog.js","common:widget\/lib\/jquery.placeholder\/jquery.placeholder.js"]},"common:widget\/set-tag\/set-tag.js":{"pkg":"common:p0","deps":["common:widget\/js\/util\/tangram\/tangram.js","common:widget\/js\/util\/template\/template.js","common:widget\/js\/ui\/scrollbar\/scrollbar.js","common:widget\/js\/ui\/dialog\/dialog.js","common:widget\/lib\/jquery.ui\/jquery.ui.sortable.js"]},"common:widget\/task\/task-last.js":{"pkg":"common:p0","deps":["common:widget\/js\/util\/tangram\/tangram.js","common:widget\/js\/util\/log\/log.js","common:widget\/js\/util\/event\/event.js","common:widget\/js\/ui\/dialog\/dialog.js","common:widget\/js\/util\/https\/https.js"]},"common:widget\/userbar-renew\/userbar-renew.js":{"pkg":"common:p0","deps":["common:widget\/js\/util\/tangram\/tangram.js","common:widget\/js\/util\/event\/event.js","common:widget\/js\/logic\/login\/login.js","common:widget\/js\/util\/log\/log.js","common:widget\/js\/util\/store\/store.js"]},"search:widget\/js\/file\/file.js":{"url":"https:\/\/iknowpc.bdimg.com\/static\/search\/widget\/js\/file\/file.c888dbd.js","deps":["common:widget\/js\/util\/tangram\/tangram.js","common:widget\/js\/util\/suffix-str\/suffix-str.js","common:widget\/js\/util\/log\/log.js","common:widget\/js\/util\/event\/event.js","common:widget\/js\/logic\/login\/login.js","common:widget\/js\/ui\/dialog\/dialog.js","common:widget\/js\/logic\/submit\/submit.js","common:widget\/js\/util\/template\/template.js"]},"search:widget\/js\/ck\/ck.js":{"pkg":"search:p0","deps":["common:widget\/lib\/jquery\/jquery.js"]}},"pkg":{"common:p0":{"url":"https:\/\/iknowpc.bdimg.com\/static\/common\/pkg\/more.74b6a40.js","has":["common:widget\/bottom-ask\/bottom-ask.js","common:widget\/css\/fonts\/iconfont.js","common:widget\/css\/fonts\/iconfont.min.js","common:widget\/footer-new\/footer-new.js","common:widget\/footer\/footer.js","common:widget\/header-metis\/header.js","common:widget\/menu\/menu.js","common:widget\/search-box-new\/search-box-new.js","common:widget\/set-tag\/set-tag.js","common:widget\/task\/task-last.js","common:widget\/userbar-renew\/userbar-renew.js"]}}});</script><script type="text/javascript" src="https://iknowpc.bdimg.com/static/common/pkg/lib.33719ed.js"></script><script type="text/javascript" src="https://iknowpc.bdimg.com/static/common/pkg/commonjs.4b2abc2.js"></script><script type="text/javascript" src="https://iknowpc.bdimg.com/static/search/pkg/module.dd54edf.js"></script><script type="text/javascript" src="https://iknowpc.bdimg.com/static/search/widget/billboard/billboard.f1a5387.js"></script><script type="text/javascript">
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;			window['__abbaidu_2016_subidgetf'] = function () {
+				if (window.location.href.indexOf("https://zhidao.baidu.com/question") === 0) {
+					return 'iknow-pc-qb';
+				}
+				if (window.location.href.indexOf("https://zhidao.baidu.com/search") === 0) {
+					return 'iknow-pc-search';
+				}
+				return 'iknow-pc-other';
+			}
+			window['__abbaidu_2016_cb'] = function (responseData) {
+                try {
+                    var respJSON = JSON.parse(responseData);
+
+                    var d = new Date();
+                    d.setTime(d.getTime()+(60*60*1000));
+                    var expires = "expires="+d.toGMTString();
+                    document.cookie = 'shitong_key_id=' + respJSON.key_id + '; ' + expires + '; path=/';
+                    document.cookie = 'shitong_data=' + respJSON.data + '; ' + expires + '; path=/';
+                    document.cookie = 'shitong_sign=' + respJSON.sign + '; ' + expires + '; path=/';
+                } catch (err) {
+                }
+   			};
+		}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['common:widget/userbar-renew/userbar-renew']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['common:widget/search-box-new/search-box-new']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;      F.context('samplingAll', {"search_50per":["2"],"search_20per":["5"],"search_10per":["9"],"search_5per":["17"],"samplowVal":"803","qb_revision_ecom":[""],"aspluAds":["2"],"qb_knowledgeAds":["2"]});
+  }();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;  require.async(['search:widget/results/picker/picker'], function(P){P.init();});
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;  require.async(['search:widget/results/list/list']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    var scroll = false;
+    document.addEventListener('scroll', function(){
+        option = {
+            requestUrl:'https://m.baidu.com/recsys/ui/api/rs',
+            containerId:'bdrecContainer',
+            ak:'ZQ4m31EXvKem1HPYzaK8Ekq6opqfhKFK',
+            pc:1,
+            charset:'gbk',
+            query: '%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF',
+            title: '%D0%CE%C8%DD%C3%E8%D0%B4%B1%ED%CA%BE%B9%D8%D3%DA%C3%C0%C0%F6%B3%C9%D3%EF',
+            tn: 'SE_PcZhidaoqwyss_e1nmnxgw',
+            contentTitleText:'去网页搜索'
+        };
+        if (!scroll) {
+            var vm = new BdRecInsert(option);
+            vm.create();
+        }
+        scroll = true;
+    });
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['search:widget/billboard/billboard'], function(B) {
+    	B.init();
+    });
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['search:widget/bottom-search-box/bottom-search-box']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require('common:widget/js/logic/ie-prompt/ie-prompt');
+    require.async(['common:widget/footer/footer']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['search:widget/js/dom-ready/dom-ready'], function(D){	
+      // 检索结果页接入dp平台domready打点
+      alog('speed.set', 'drt', +new Date);
+      
+      D.init({"logConfig":{"ssid":"2779828566","pn":"0","wd":"\u5f62\u5bb9\u63cf\u5199\u8868\u793a\u5173\u4e8e\u7f8e\u4e3d\u6210\u8bed","tc":"120","nsma":"2","asp_new_graphic_ad":"nonw"},"tcConfig":{"swf":{"open":"0"}}});	
+    });
+	}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;	require.async(['common:widget/bottom-ask/bottom-ask']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;								                																	require.async(['common:widget/js/logic/dom-ready/dom-ready'], function(D){ D.init({"isNotPgc":"1"}) });
+            }();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;        require.async(["common:widget/js/logic/duration/duration"],function(dur){
+            dur.init();
+        });
+    }();
+</script>
+<script type="text/javascript">
+    require.async(['common:widget/lib/jquery/jquery'], function ($) {
+        if (!/chrome|firefox|safari|msie 10|rsv:11|msie [89]/i.test(navigator.userAgent)) {
+            return;
+        }
+
+        window.BaiduHttps = window.BaiduHttps || {};
+        window.BaiduHttps.callbacks = function (data) {
+            if (data && data.s === 0) {
+                window.supportHttps = 1;
+                setTimeout(function () {
+                    $('a[href^="http://www.baidu.com/s?"]').each(function (index, item) {
+                        var link = $(item).attr('href');
+                        if (~link.indexOf('?wd=') || ~link.indexOf('&wd=')) {
+                            link = link.replace(/^http/, 'https');
+                            $(item).attr('href', link);
+                        }
+                    });
+                }, 2000);
+            }
+        };
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://www.baidu.com/con?from=zhidao';
+        document.body.appendChild(script);
+    });
+</script>
+
+
+<script async="" src="https://dlswbr.baidu.com/heicha/mw/abclite-2016-s.js"></script>
+</html>

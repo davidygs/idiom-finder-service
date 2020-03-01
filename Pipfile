@@ -6,14 +6,19 @@ verify_ssl = true
 [dev-packages]
 pytest = '*'
 pytest-mock = '*'
+pytest-asyncio = '*'
+pytest-cov = '*'
+python-coveralls = '*'
 
 [packages]
 aiohttp = '*'
 sanic = '*'
+sanic-cors = '*'
 beautifulsoup4 = '*'
 cchardet = '*'
 aiodns = '*'
 jieba = "*"
+asynctest = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"

@@ -7,6 +7,7 @@ from typing import Tuple, List
 import aiohttp
 import jieba
 from bs4 import BeautifulSoup
+from sanic.log import logger
 
 from idiomfinder.validator import IdiomValidator
 
@@ -22,19 +23,37 @@ class BaiduScraper(Scraper):
 
     def __init__(self,
                  validator: IdiomValidator = IdiomValidator(),
-                 base_url: str = 'https://zhidao.baidu.com/search?word=形容描写表示关于{}成语'):
+                 base_url: str = 'https://zhidao.baidu.com/search?word=形容描写表示关于{}成语',
+                 retries: int = 3):
         self.validator = validator
         self.base_url = base_url
+        self.retries = retries
 
     async def scrape_idioms(self, kw: str) -> List[Tuple[str, int]]:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(self.base_url.format(kw)) as response:
-                html = await response.text()
-                soup = BeautifulSoup(html, 'html.parser')
+        # TODO need to rotate a list of user agents
+        headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) '
+                                 'AppleWebKit/537.36 (KHTML, like Gecko) '
+                                 'Chrome/57.0.2987.110 '
+                                 'Safari/537.36'}
+        async with aiohttp.ClientSession(headers=headers) as session:
+            retries = self.retries
+            while retries > -1:
+                async with session.get(self.base_url.format(kw)) as response:
+                    html = await response.text()
+                    soup = BeautifulSoup(html, 'html.parser')
+                    html_text = soup.get_text()
 
-                aws = [self._process_post(session, a['href']) for a in soup.find_all('a', class_='ti')]
-                idiom_lists = await asyncio.gather(*aws)
-                return self._reduce(idiom_lists)
+                    # TODO needs further investigation
+                    # This happens quite often
+                    if '抱歉，暂时没有找到' in html_text:
+                        retries -= 1
+                        logger.warn('Baidu returns no result. Retry.')
+                        continue
+
+                    aws = [self._process_post(session, a['href']) for a in soup.find_all('a', class_='ti')]
+                    idiom_lists = await asyncio.gather(*aws)
+                    return self._reduce(idiom_lists)
+        return []
 
     async def _process_post(self, session, post_url) -> List[str]:
         async with session.get(post_url) as response:
@@ -55,8 +74,3 @@ class BaiduScraper(Scraper):
         counter = Counter(itertools.chain(*idiom_lists)).most_common()
         return [(idiom, score) for idiom, score in counter]
 
-
-if __name__ == '__main__':
-    scraper = BaiduScraper()
-    idioms = asyncio.run(scraper.scrape_idioms('美丽'))
-    print(idioms)
