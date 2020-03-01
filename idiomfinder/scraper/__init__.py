@@ -1,6 +1,7 @@
 import abc
 import asyncio
 import itertools
+import re
 from collections import Counter
 from typing import Tuple, List
 
@@ -29,16 +30,22 @@ class BaiduScraper(Scraper):
         self.base_url = base_url
         self.retries = retries
 
-    async def scrape_idioms(self, kw: str) -> List[Tuple[str, int]]:
+    async def scrape_idioms(self, query: str) -> List[Tuple[str, int]]:
+
+        query = self._extract_chinese(query)
+        if not query:
+            return []
+
         # TODO need to rotate a list of user agents
         headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) '
                                  'AppleWebKit/537.36 (KHTML, like Gecko) '
                                  'Chrome/57.0.2987.110 '
                                  'Safari/537.36'}
+
         async with aiohttp.ClientSession(headers=headers) as session:
             retries = self.retries
             while retries > -1:
-                async with session.get(self.base_url.format(kw)) as response:
+                async with session.get(self.base_url.format(query)) as response:
                     html = await response.text()
                     soup = BeautifulSoup(html, 'html.parser')
                     html_text = soup.get_text()
@@ -54,6 +61,11 @@ class BaiduScraper(Scraper):
                     idiom_lists = await asyncio.gather(*aws)
                     return self._reduce(idiom_lists)
         return []
+
+    @staticmethod
+    def _extract_chinese(query):
+        query = '' if not query else query
+        return ''.join(re.findall(r'[\u4e00-\u9fff]+', query))
 
     async def _process_post(self, session, post_url) -> List[str]:
         async with session.get(post_url) as response:
@@ -73,4 +85,3 @@ class BaiduScraper(Scraper):
     def _reduce(self, idiom_lists: List[List[str]]) -> List[Tuple[str, int]]:
         counter = Counter(itertools.chain(*idiom_lists)).most_common()
         return [(idiom, score) for idiom, score in counter]
-

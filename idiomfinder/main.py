@@ -13,9 +13,9 @@ scraper = BaiduScraper()
 
 @app.route("/")
 async def get_idioms(request):
-    kw = ''.join(request.args['kw'])
+    query = ''.join(request.args['query'])
     try:
-        res = await scraper.scrape_idioms(kw)
+        res = await scraper.scrape_idioms(query)
         return json(res, ensure_ascii=False)
     except Exception as e:
         logger.exception(e)

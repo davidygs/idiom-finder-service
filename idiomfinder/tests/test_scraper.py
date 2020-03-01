@@ -92,3 +92,26 @@ async def test_normal_results_should_be_extracted(baidu_scraper, normal_search_p
     results = await baidu_scraper.scrape_idioms('美丽')
     assert mock_session.get.call_count == 11
     assert len(results) == 25
+
+
+@pytest.mark.asyncio
+async def test_invalid_query_should_return_empty_result(baidu_scraper, mocker):
+    mock_session = _create_session_mock(mocker, [])
+
+    results = await baidu_scraper.scrape_idioms('')
+    assert len(results) == 0
+
+    results = await baidu_scraper.scrape_idioms(None)
+    assert len(results) == 0
+
+    results = await baidu_scraper.scrape_idioms('non-chinese query')
+    assert len(results) == 0
+
+    assert mock_session.get.call_count == 0
+
+
+@pytest.mark.asyncior
+async def test_non_chinese_query_should_be_stripped(baidu_scraper, mocker):
+    mock_session = _create_session_mock(mocker, [''])
+    await baidu_scraper.scrape_idioms('  non-chinese query 天气 foo 晴朗 bar  ')
+    mock_session.get.assert_called_once_with(baidu_scraper.base_url.format('天气晴朗'))
