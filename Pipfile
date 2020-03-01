@@ -8,7 +8,6 @@ pytest = '*'
 pytest-mock = '*'
 pytest-asyncio = '*'
 pytest-cov = '*'
-python-coveralls = '*'
 
 [packages]
 aiohttp = '*'
