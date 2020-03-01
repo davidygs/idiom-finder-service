@@ -1,7 +1,7 @@
 dist: xenial
 language: python
 python:
-    - "3.7"
+    - "3.8"
 env:
     global:
         - IMAGE_NAME=scabbage/idiom-finder
@@ -9,8 +9,9 @@ install:
     - pip install pipenv
     - pipenv install --ignore-pipfile --dev
 script:
-    - pytest
+    - pytest --cov=idiomfinder
 after_success:
+    - bash <(curl -s https://codecov.io/bash)
     - cd $TRAVIS_BUILD_DIR
     - docker --version
     - env
