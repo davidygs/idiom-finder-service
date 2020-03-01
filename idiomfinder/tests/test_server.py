@@ -34,6 +34,11 @@ def test_baidu_connection_error_should_return_503(mocker):
     assert response.status == 503
 
 
-def test_health_returns_200():
+def test_health_should_return_200():
     request, response = app.test_client.get('/health')
     assert response.status == 200
+
+
+def test_long_query_should_return_400():
+    request, response = app.test_client.get('/?query=美丽美丽美丽美丽美丽美丽美丽美丽')
+    assert response.status == 400
