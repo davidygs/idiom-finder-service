@@ -13,7 +13,7 @@ def test_get_idioms_should_return_200(mocker):
     scraper.scrape_idioms.side_effect = callback
     request, response = app.test_client.get('/?query=美丽')
     assert response.status == 200
-    assert response.json[0][0] == '沉鱼落雁'
+    assert response.json[0] == {'idiom': '沉鱼落雁', 'score': 3}
 
 
 def test_baidu_timeout_should_return_503(mocker):

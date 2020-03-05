@@ -19,7 +19,7 @@ async def get_idioms(request):
 
     try:
         res = await scraper.scrape_idioms(query)
-        return json(res, ensure_ascii=False)
+        return json([{'idiom': r[0], 'score': r[1]} for r in res], ensure_ascii=False)
     except Exception as e:
         logger.exception(e)
         return HTTPResponse(status=503)
