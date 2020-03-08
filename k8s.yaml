@@ -1,13 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: idiom-finder-backend
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":8000}]'
+  labels:
+    app: idiom-finder-backend
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: idiom-finder-backend
+              servicePort: 8000
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: idiom-finder-backend
   labels:
     app: idiom-finder-backend
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: nlb
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: idiom-finder-backend
   ports:
