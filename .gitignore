@@ -108,3 +108,6 @@ ENV/
 
 # all env configs
 *.env
+
+# exclude k8s manifest files
+k8s.yaml
