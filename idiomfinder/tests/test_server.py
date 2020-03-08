@@ -42,3 +42,8 @@ def test_health_should_return_200():
 def test_long_query_should_return_400():
     request, response = app.test_client.get('/?query=美丽美丽美丽美丽美丽美丽美丽美丽')
     assert response.status == 400
+
+
+def test_empty_query_should_return_400():
+    request, response = app.test_client.get('/?query=')
+    assert response.status == 400

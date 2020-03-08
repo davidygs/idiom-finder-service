@@ -13,6 +13,9 @@ scraper = BaiduScraper()
 
 @app.route("/")
 async def get_idioms(request):
+    if 'query' not in request.args:
+        return HTTPResponse(status=400, body='invalid query')
+
     query = ''.join(request.args['query'])
     if len(query) > 15:
         return HTTPResponse(status=400, body='query too long')
