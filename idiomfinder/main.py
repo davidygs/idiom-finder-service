@@ -1,3 +1,5 @@
+import os
+
 from sanic import Sanic
 from sanic.log import logger
 from sanic.response import json, HTTPResponse
@@ -34,4 +36,5 @@ async def health_check(request):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    logger.setLevel(os.getenv('SANIC_LOGGING_LEVEL', 'INFO'))
+    app.run(access_log=False)
