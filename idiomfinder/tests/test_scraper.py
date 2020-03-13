@@ -1,17 +1,15 @@
 import pkgutil
-from typing import List
-from unittest.mock import MagicMock, AsyncMock
+from typing import List, Any
+from unittest.mock import ANY
 
 import pytest
-from aiohttp import ClientSession
+from aiohttp import ClientResponseError, ServerTimeoutError
 from pytest import fixture
 
-from idiomfinder.scraper import BaiduScraper
+import idiomfinder
+from idiomfinder.scraper import scrape_idioms, BASE_URL
 
-
-@fixture
-def baidu_scraper():
-    return BaiduScraper()
+pytestmark = pytest.mark.asyncio
 
 
 @fixture
@@ -21,8 +19,8 @@ def no_results_page():
 
 
 @fixture
-def normal_results_page():
-    p = pkgutil.get_data('idiomfinder.tests', 'data/normal_results_page.html')
+def normal_post_page():
+    p = pkgutil.get_data('idiomfinder.tests', 'data/normal_post_page.html')
     return p.decode('gbk')
 
 
@@ -32,86 +30,82 @@ def normal_search_page():
     return p.decode('gbk')
 
 
-def _create_session_mock(mocker, side_effect_htmls: List[str]):
-    mock_session = MagicMock(ClientSession)
-    mock_session.__aenter__.return_value = mock_session
-    mock_session.get.return_value = mock_session
-
-    session_class = mocker.patch('idiomfinder.scraper.aiohttp.ClientSession')
-    session_class.return_value = mock_session
-
-    mock_text = AsyncMock()
-    mock_text.side_effect = side_effect_htmls
-
-    mock_session.text = mock_text
-
-    return mock_session
+def _create_get_html_mock(mocker, side_effects: List[Any]):
+    mock = mocker.patch('idiomfinder.scraper._get_html')
+    mock.side_effect = side_effects
+    return mock
 
 
-@pytest.mark.asyncio
-async def test_empty_results_should_retry(baidu_scraper, no_results_page, normal_search_page, mocker):
-    side_effect_htmls = [
+async def test_empty_results_should_retry(no_results_page, normal_search_page, mocker):
+    side_effects = [
+                       no_results_page,
+                       normal_search_page
+                   ] + [''] * 10
+    mock = _create_get_html_mock(mocker, side_effects)
+    await scrape_idioms('美丽')
+    assert mock.call_count == 12
+
+
+async def test_empty_result_should_return_empty_list(no_results_page, mocker):
+    side_effects = [
         no_results_page,
         no_results_page,
-        normal_search_page
-    ]
-    mock_session = _create_session_mock(mocker, side_effect_htmls)
-
-    mock_process_post = mocker.patch('idiomfinder.scraper.BaiduScraper._process_post')
-    mock_process_post.return_value = ['沉鱼落雁']
-
-    results = await baidu_scraper.scrape_idioms('美丽')
-    assert mock_session.get.call_count == 3
-    assert mock_process_post.call_count == 10
-    assert len(results) == 1
-    assert results[0][0] == '沉鱼落雁'
-    assert results[0][1] == 10
-
-
-@pytest.mark.asyncio
-async def test_empty_result_should_return_empty_list(baidu_scraper, no_results_page, mocker):
-    baidu_scraper.retries = 1
-    side_effect_htmls = [
         no_results_page,
         no_results_page,
     ]
-    mock_session = _create_session_mock(mocker, side_effect_htmls)
-    results = await baidu_scraper.scrape_idioms('美丽')
-    assert mock_session.get.call_count == 2
+    mock = _create_get_html_mock(mocker, side_effects)
+    results = await scrape_idioms('美丽')
+    assert mock.call_count == 4  # original fetch + 3 retries (by default)
     assert len(results) == 0
 
 
-@pytest.mark.asyncio
-async def test_normal_results_should_be_extracted(baidu_scraper, normal_search_page, normal_results_page, mocker):
-    side_effect_htmls = [
-        normal_search_page,
-        normal_results_page,  # one page will be scraped
-        '', '', '', '', '', '', '', '', ''  # fake the rest of the results page
-    ]
-    mock_session = _create_session_mock(mocker, side_effect_htmls)
-    results = await baidu_scraper.scrape_idioms('美丽')
-    assert mock_session.get.call_count == 11
+async def test_normal_results_should_be_extracted(normal_search_page, normal_post_page, mocker):
+    side_effects = [
+                       normal_search_page,
+                       normal_post_page,  # one page will be scraped
+                   ] + [''] * 9  # fake the rest of the results page
+    mock = _create_get_html_mock(mocker, side_effects)
+    results = await scrape_idioms('美丽')
+    assert mock.call_count == 11
     assert len(results) == 25
 
 
-@pytest.mark.asyncio
-async def test_invalid_query_should_return_empty_result(baidu_scraper, mocker):
-    mock_session = _create_session_mock(mocker, [])
+async def test_invalid_query_should_return_empty_result(mocker):
+    mock = _create_get_html_mock(mocker, [])
 
-    results = await baidu_scraper.scrape_idioms('')
+    results = await scrape_idioms('')
     assert len(results) == 0
 
-    results = await baidu_scraper.scrape_idioms(None)
+    results = await scrape_idioms('non-chinese query')
     assert len(results) == 0
 
-    results = await baidu_scraper.scrape_idioms('non-chinese query')
-    assert len(results) == 0
-
-    assert mock_session.get.call_count == 0
+    assert mock.call_count == 0
 
 
-@pytest.mark.asyncior
-async def test_non_chinese_query_should_be_stripped(baidu_scraper, mocker):
-    mock_session = _create_session_mock(mocker, [''])
-    await baidu_scraper.scrape_idioms('  non-chinese query 天气 foo 晴朗 bar  ')
-    mock_session.get.assert_called_once_with(baidu_scraper.base_url.format('天气晴朗'))
+async def test_non_chinese_query_should_be_stripped(mocker):
+    mock = _create_get_html_mock(mocker, [''])
+    await scrape_idioms('  non-chinese query 天气 foo 晴朗 bar  ')
+    mock.assert_called_once_with(ANY, BASE_URL.format('天气晴朗'))
+
+
+async def test_search_page_fetch_failure_should_raise(mocker):
+    side_effects = [ClientResponseError(None, ()), ServerTimeoutError]
+    _create_get_html_mock(mocker, side_effects)
+
+    with pytest.raises(ClientResponseError):
+        await scrape_idioms('美丽')
+
+    with pytest.raises(ServerTimeoutError):
+        await scrape_idioms('美丽')
+
+
+async def test_post_page_fetch_failure_should_ignore(normal_search_page, normal_post_page, mocker):
+    # 7 successful post fetches + 3 failed post fetches
+    side_effects = [normal_search_page] + \
+                   [normal_post_page] * 7 + \
+                   [ClientResponseError(None, ())] * 3
+    _create_get_html_mock(mocker, side_effects)
+
+    spy = mocker.spy(idiomfinder.scraper, '_process_post')
+    await scrape_idioms('美丽')
+    assert spy.call_count == 7

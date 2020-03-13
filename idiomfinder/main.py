@@ -5,12 +5,10 @@ from sanic.log import logger
 from sanic.response import json, HTTPResponse
 from sanic_cors import CORS
 
-from idiomfinder.scraper import BaiduScraper
+from idiomfinder.scraper import scrape_idioms
 
 app = Sanic(name='idiom')
 CORS(app)
-
-scraper = BaiduScraper()
 
 
 @app.route("/")
@@ -23,7 +21,7 @@ async def get_idioms(request):
         return HTTPResponse(status=400, body='query too long')
 
     try:
-        res = await scraper.scrape_idioms(query)
+        res = await scrape_idioms(query)
         return json([{'idiom': r[0], 'score': r[1]} for r in res], ensure_ascii=False)
     except Exception as e:
         logger.exception(e)
