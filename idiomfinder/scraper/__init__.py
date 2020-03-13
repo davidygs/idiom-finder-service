@@ -6,7 +6,7 @@ from collections import Counter
 from typing import Tuple, List
 
 import jieba
-from aiohttp import ClientTimeout, ClientResponseError
+from aiohttp import ClientTimeout, ClientResponseError, ServerDisconnectedError
 from aiohttp_retry import RetryClient
 from bs4 import BeautifulSoup
 from sanic.log import logger
@@ -25,7 +25,7 @@ async def _get_html(retry_client, url) -> str:
     async with retry_client.get(
             url,
             retry_attempts=RETRIES,
-            retry_exceptions=[ClientResponseError, TimeoutError]
+            retry_exceptions=[ClientResponseError, TimeoutError, ServerDisconnectedError]
     ) as rs:
         return await rs.text(RESPONSE_ENCODING)
 
@@ -86,20 +86,28 @@ def _reduce(idiom_lists: List[List[str]]) -> List[Tuple[str, int]]:
     return [(idiom, score) for idiom, score in counter]
 
 
-async def scrape_idioms(query: str) -> List[Tuple[str, int]]:
-    query = _extract_chinese(query)
-    if not query:
-        return []
+class IdiomScraper:
 
-    retry_client = RetryClient(
-        raise_for_status=True,  # raise exception if response status >= 400
-        timeout=ClientTimeout(total=CLIENT_TIMEOUT)  # set a timeout value
-    )
-    post_html_list = []
-    async with retry_client:
+    def __init__(self):
+        self.client = None
+
+    @classmethod
+    async def create(cls):
+        self = IdiomScraper()
+        self.client = RetryClient(
+            raise_for_status=True,  # raise exception if response status >= 400
+            timeout=ClientTimeout(total=CLIENT_TIMEOUT),  # set a timeout value
+        )
+        return self
+
+    async def scrape_idioms(self, query: str) -> List[Tuple[str, int]]:
+        query = _extract_chinese(query)
+        if not query:
+            return []
+
         try:
-            base_html = await _fetch_base_html(retry_client, query)
-            aws = [_get_html(retry_client, url) for url in _extract_post_urls(base_html)]
+            base_html = await _fetch_base_html(self.client, query)
+            aws = [_get_html(self.client, url) for url in _extract_post_urls(base_html)]
             fetch_results = await asyncio.gather(*aws, return_exceptions=True)
             exceptions = [it for it in fetch_results if isinstance(it, Exception)]
             post_html_list = [it for it in fetch_results if not isinstance(it, Exception)]
@@ -109,4 +117,4 @@ async def scrape_idioms(query: str) -> List[Tuple[str, int]]:
             logger.error(repr(e))
             raise e
 
-    return _reduce([_process_post(post_html) for post_html in post_html_list])
+        return _reduce([_process_post(post_html) for post_html in post_html_list])
