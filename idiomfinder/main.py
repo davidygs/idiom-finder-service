@@ -43,4 +43,4 @@ async def health_check(request):
 if __name__ == "__main__":
     logger.setLevel(os.getenv('SANIC_LOGGING_LEVEL', 'INFO'))
     app.add_task(init)
-    app.run(host="0.0.0.0", access_log=False)
+    app.run(access_log=False)
