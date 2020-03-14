@@ -110,4 +110,4 @@ ENV/
 *.env
 
 # exclude k8s manifest files
-k8s.yaml
+k8s*.yaml
