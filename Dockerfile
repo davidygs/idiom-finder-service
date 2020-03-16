@@ -1,4 +1,4 @@
-FROM python:3.7-slim AS build-image
+FROM python:3.8-slim AS build-image
 MAINTAINER David Yu <guanshan@gmail.com>
 
 RUN apt-get update
@@ -19,7 +19,7 @@ RUN pipenv install --deploy --ignore-pipfile
 
 
 
-FROM python:3.7-slim AS deploy-image
+FROM python:3.8-slim AS deploy-image
 WORKDIR /opt/app
 COPY --from=build-image /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH" VIRTUAL_ENV="/opt/venv" PYTHONPATH="/opt/app"
